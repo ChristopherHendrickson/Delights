@@ -23,3 +23,7 @@ class RecipeRequirement(models.Model):
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItems,on_delete=models.CASCADE)
     time_stamp = models.DateTimeField(auto_now_add=True)
+
+
+
+
