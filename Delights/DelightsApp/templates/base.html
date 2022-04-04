@@ -1,8 +1,16 @@
+{% load static %}
 <!DOCTYPE HTML>
 <html>
-<body>restaraunt</body>
-    <main>
-        {% content block %}
-        {% endblock %}
-    </main>
-</html>
+    <meta charset="utf-8" />
+    <h1>Buy Food</h1>
+    <nav class="navbar">
+        <a class="nav-item" href="{% url 'menu' %}">Menu</a>
+        <a class="nav-item" href="{% url 'inventory' %}">Inventory</a>
+        <a class="nav-item" href="{% url 'purchases' %}">Pucrhases</a>
+    </nav>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </html>
+
