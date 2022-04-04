@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Inventory</h1>
+   
+<table class ='inventory-table'>
+    <thead>
+        <tr>
+            <th>Ingredient</th>
+            <th>Qty</th>
+            <th></th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for ingredient in object_list %}
+    <tr>
+          
+        <td>{{ ingredient.Ingredient.title }}</td>
+        <td>{{ ingredient.quantity}} </td>
+        <td> {{ingredient.unit.title}}</td>
+        <td>${{ ingredient.unit_price }}</td>
+    </tr>  
+    {% endfor %}
+    </tbody>
+</table>   
+{% endblock %}

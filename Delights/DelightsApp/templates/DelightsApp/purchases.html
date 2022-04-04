@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Purchases</h1>
+<h4>Total Revenue: ${{revenue}}</h4>
+<table class ='purchases-table'>
+    <thead>
+        <tr>
+            <th>Menu Item</th>
+            <th>Time</th>
+            <th></th>
+            <th>Profit</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for purchase in purchases %}
+    <tr>
+          
+        <td>{{purchase.menu_item}}  ...</td>
+        <td>{{purchase.time_stamp}} ...</td>
+        <td>${{purchase.profit}}    </td>
+
+    </tr>  
+    {% endfor %}
+    </tbody>
+</table>   
+
+
+
+{% endblock %}

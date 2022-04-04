@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Ingredients needed for {{meal.item}}</h1>
+<table>
+    <tr>
+        <th>Ingredient</th>
+        <th>Quantity</th>
+
+        <th>Amount In stock</th>
+        <th>Ingredient Cost</th>
+    </tr>
+    {% for ingredient in ingredients_list %} 
+    {% if ingredient.menu_item.item == meal.item %}
+
+    <tr>
+        <td>{{ingredient.ingredient}}</td>
+        <td>{{ingredient.quantity}}</td>
+        <td>{{ingredient.amount_available}} {{ingredient.get_unit}}</td>
+        <td>${{ingredient.cost}}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    
+</table>
+
+
+<h4>Total cost: ${{meal.total_cost}}</h4>
+
+
+{% endblock %}
