@@ -11,5 +11,7 @@ class Message(models.Model):
     time = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
 
+    
+
     def __str__(self):  
         return self.message
