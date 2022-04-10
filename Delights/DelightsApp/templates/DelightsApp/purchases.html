@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Purchases</h1>
-<h4>Total Revenue: ${{revenue}}</h4>
+<h4>Total Profit: ${{revenue}}</h4>    
+
+<p><a class="nav-item" href="{% url 'add_purchase' %}">Record Purchase</a></p>
+
 <table class ='purchases-table'>
     <thead>
         <tr>

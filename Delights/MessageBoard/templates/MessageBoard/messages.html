@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<h1>Message Board</h1>
+{{current_user}}
+<a class="logout-button" href="{% url 'logout' %}">Log Out</a>
+<form method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="Submit" value = "Submit"/>
+</form>
+
+<table>
+    <th></th>
+    <th></th>
+
+
+    {% for message in messages %}
+
+    <tr>
+    <td>{{message.user}}: </td> 
+    <td><span title = "{{message.time}}">{{message.message}}</span></td>
+
+    </span>
+    </tr>
+
+{% endfor %}
+</table>
+</html> 

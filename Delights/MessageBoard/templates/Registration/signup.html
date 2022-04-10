@@ -1,0 +1,13 @@
+<div class="login-form">
+    <h2>Signup to message your guy</h2>
+      <form class="login" method="post">
+          <div>
+            {% csrf_token %}
+     
+              {{form.as_p}}
+           
+            <input type="submit" value="Sign Up"/>
+          </div>
+ 
+      </form>
+    </div>

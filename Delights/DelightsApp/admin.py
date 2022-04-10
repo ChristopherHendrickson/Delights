@@ -16,3 +16,4 @@ class DelightsAppAdminPurchase(admin.ModelAdmin):
 admin.site.register(RecipeRequirement, DelightsAppAdminRecipe)
 admin.site.register(MenuItems, DelightsAppAdminItem)
 admin.site.register(Purchase, DelightsAppAdminPurchase)
+admin.site.register(Ingredients, list_display = ('Ingredient','quantity','unit_price','unit'))

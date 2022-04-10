@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>Menu</h1>
-   
+
 <table class ='menu-table'>
     <thead>
         <tr>
@@ -13,16 +13,13 @@
         </tr>
     </thead>
     <tbody>
+
     {% for menu_item in object_list %}
 
     <tr>
-        <td>            
-        <a href ="{{ menu_item.get_absolute_url }}" >{{ menu_item.item }}</a>
-        </td>
+        <td><a href ="{{ menu_item.get_absolute_url }}" >{{ menu_item.item }}</a></td>
         <td>...................</td>
-        <td>
-        ${{ menu_item.price }}
-        </td>
+        <td>${{ menu_item.price }} {% if not menu_item.stock %} - Out Of Stock{% endif %}</td>
     </tr>  
     {% endfor %}
     </tbody>
