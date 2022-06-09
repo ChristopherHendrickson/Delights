@@ -31,9 +31,15 @@ class Recipe(DetailView):
     template_name = 'DelightsApp/recipe.html'
      
     def get_context_data(self, **kwargs):
-
+        
+        kwargs_list = []
+        self_kwargs_list = []
+        for key in kwargs:
+            kwargs_list.append(kwargs[key])
+        for key in self.kwargs:
+            self_kwargs_list.append(self.kwargs[key])
         context = super().get_context_data(**kwargs)
-        context={'ingredients_list':RecipeRequirement.objects.all(),'meal':kwargs['object']}
+        context={'ingredients_list':RecipeRequirement.objects.all(),'meal':kwargs['object'],'a':kwargs_list,'b':self_kwargs_list}
         return context
 
 class Purchase_view(ListView):
@@ -59,3 +65,24 @@ class Add_Purchase_view(CreateView):
     model = Purchase
     form_class = AddPurchase
     template_name = 'DelightsApp/add_purchase.html'
+
+
+def error_tests_cookied(request,cookie):
+    
+    if not request.session.session_key:
+        request.session.create()
+        request.session.save()
+        
+
+    if request.method == "POST":
+        
+        data = (request.POST.get('message'))    
+        if str(data).strip() == 'new':
+            request.session.cycle_key()
+            return redirect('error_tests',cookie=request.session.session_key)
+    return render(request, 'DelightsApp/error.html', {'error_msg':request.session.session_key,'cookie':request.session.session_key})
+
+def test_index(request):
+
+
+    return render(request,'DelightsApp/test_index.html',context={})

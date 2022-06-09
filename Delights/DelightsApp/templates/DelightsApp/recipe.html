@@ -2,6 +2,8 @@
 
 {% block content %}
 <h1>Ingredients needed for {{meal.item}}</h1>
+{{a}}<p>
+{{b}}</p>
 <table>
     <tr>
         <th>Ingredient</th>
@@ -12,7 +14,7 @@
     </tr>
     {% for ingredient in ingredients_list %} 
     {% if ingredient.menu_item.item == meal.item %}
-
+ 
     <tr>
         <td>{{ingredient.ingredient}}</td>
         <td>{{ingredient.quantity}}</td>

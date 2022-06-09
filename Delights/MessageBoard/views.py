@@ -9,9 +9,13 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
+from django.contrib.auth import login
 from .forms import CreateUserForm
 from django.contrib.sessions.models import Session
 # Create your views here.
+
+
+
 
 
 class SignUp(CreateView):
@@ -33,6 +37,7 @@ class MessageView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 
     def get_context_data(self, **kwargs):
@@ -71,6 +76,7 @@ class active(LoginRequiredMixin, ListView):
 def logout_request(request):
   logout(request)
   return redirect("login")
+
 
 
 # This is the typical path for a view inheriting from TemplateView.

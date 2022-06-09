@@ -72,5 +72,5 @@ class Purchase(models.Model):
         return round(self.menu_item.price - self.menu_item.total_cost(),2)
 
     def get_absolute_url(self):
-        return reverse_lazy("purchases")
+        return reverse("purchases")
 

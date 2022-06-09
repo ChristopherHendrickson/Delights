@@ -121,6 +121,7 @@ STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = 'messages'
 LOGIN_URL = 'login'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
